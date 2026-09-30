@@ -1,38 +1,59 @@
 # Wisdom Mod Translator
 
-Fork of [The Sims 4 Translator](https://github.com/voky1/sims4-translator) by voky1, under the MIT license.
+Programa para traduzir mods do The Sims 4. Lê o texto das String Tables dentro de arquivos `.package`, guarda um dicionário para as próximas versões do mod e grava a tradução num pacote separado ou no mod aberto.
 
-This is a program for translating mods for The Sims 4.  
+É um fork do [The Sims 4 Translator](https://github.com/voky1/sims4-translator), de voky1, sob a licença MIT. A ideia original vem do [xTranslator](https://www.nexusmods.com/skyrimspecialedition/mods/134).
 
-## Features
+## Requisitos
 
-- The translation of mods can be saved in dictionaries, which saves you from re-translating if new versions are released.
-- Saving the translation as a separate file, or adding it directly to the mod.
-- Saving translations from multiple mods to a single file.
+- Python 3
+- Dependências do projeto
 
-## Usage Instructions
+```bash
+pip install -r requirements.txt
+python main.py
+```
 
-- In the settings, select the languages you plan to translate from and to.
-- Open the mod (*.package)
-- Translate.
-- Save the dictionary if you plan to edit the translation or are going to translate new versions of the mod.
-- Save the translation in a separate package or save the translation immediately in an open mod (finalization).
-- Profit.
+## O que o programa traduz
 
-## Languages
+O texto que o jogo mostra fica na String Table do `.package`. Para o cliente em português do Brasil, o destino é o idioma `POR_BR`.
 
-Starting from version 1.2, the translation of the interface has been made into separate files. They are available in the folder:
+Traduz-se o texto da frase. A chave da string e os tokens entre chaves, como `{0.SimFirstName}` e `{0.String}`, permanecem intactos. Dentro dos tokens de gênero, só o pronome muda: `{M0.He}` vira `{M0.Ele}`, `{F0.She}` vira `{F0.Ela}`.
 
-`<app path>/prefs/interface/`
+Texto escrito direto num script `.ts4script` não passa por este programa.
 
-To add a new translation, you need to place the XML file with the new translation in this folder.
+## Recursos
 
-## Fonts
+- Dicionário local, para não retraduzir frases que não mudaram quando o mod atualiza.
+- Gravação da tradução num `.package` separado, ou direto no mod aberto.
+- Várias traduções reunidas num único arquivo.
+- Tradução automática com Google e MyMemory. O DeepL entra na lista quando há uma chave de API nas opções.
+- Tokens entre chaves ficam de fora da tradução automática.
+- Importação e exportação em XML, no formato do DP STBL Editor, e em JSON ou binário do Sims 4 Studio.
+- Tema claro e tema escuro.
+- Interface já traduzida para português do Brasil.
 
-This project uses the following fonts:
-- **[Roboto](https://fonts.google.com/specimen/Roboto)** — Licensed under [Apache 2.0](fonts/LICENSE-Roboto.txt).
-- **[JetBrains Mono](https://www.jetbrains.com/lp/mono/)** — Licensed under [SIL Open Font License 1.1 (OFL)](fonts/LICENSE-JetBrains.txt).
+## Como usar
 
-## Additional Credits
+1. Em **Opções**, escolha o idioma da interface e os idiomas de origem e destino. Para o jogo em português do Brasil, o destino é `POR_BR`.
+2. Abra o mod (`.package`).
+3. Traduza as linhas. Revise o texto automático antes de publicar.
+4. Salve o dicionário se for atualizar esta tradução depois.
+5. Salve a tradução num pacote separado para compartilhar, ou grave no mod aberto se for só para a sua pasta Mods.
 
-The idea is taken from the app [xTranslator](https://www.nexusmods.com/skyrimspecialedition/mods/134).
+Para publicar, distribua apenas o pacote da tradução, na mesma pasta do mod, e siga a política do autor. Reenviar o mod inteiro republica o trabalho de outra pessoa e entrega uma versão que envelhece no próximo update.
+
+## Idioma da interface
+
+Os textos da janela ficam em `prefs/interface/`. O português do Brasil está em `prefs/interface/brasil.xml` (tradução de luana67).
+
+Para incluir outro idioma, coloque um XML novo nessa pasta.
+
+## Fontes
+
+- [Roboto](https://fonts.google.com/specimen/Roboto), licença [Apache 2.0](fonts/LICENSE-Roboto.txt).
+- [JetBrains Mono](https://www.jetbrains.com/lp/mono/), licença [SIL Open Font License 1.1](fonts/LICENSE-JetBrains.txt).
+
+## Licença
+
+MIT. O aviso de copyright e o texto da licença estão em [LICENSE](LICENSE).
