@@ -8,7 +8,7 @@ from widgets.colorbar import QColorBar
 from widgets.tableview import QMainTableView
 from widgets.toolbar import QToolBar
 
-from utils.constants import APP_VERSION, APP_RELEASE_CANDITATE
+from utils.constants import APP_NAME, APP_VERSION, APP_RELEASE_CANDITATE
 
 
 class Ui_MainWindow(object):
@@ -17,7 +17,7 @@ class Ui_MainWindow(object):
         MainWindow.resize(1125, 723)
         MainWindow.setMinimumSize(935, 620)
 
-        title = f'The Sims 4 Translator {APP_VERSION}'
+        title = f'{APP_NAME} {APP_VERSION}'
         if APP_RELEASE_CANDITATE:
             title += ' RC'
 

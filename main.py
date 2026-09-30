@@ -14,6 +14,7 @@ from storages.packages import PackagesStorage
 from storages.dictionaries import DictionariesStorage
 
 from themes.stylesheet import stylesheet
+from utils.constants import APP_NAME
 
 import resource_rc
 
@@ -22,6 +23,8 @@ def main():
     sys.argv += ['-style', 'windows']
 
     app = QApplication(sys.argv)
+    app.setApplicationName(APP_NAME)
+    app.setApplicationDisplayName(APP_NAME)
 
     packages_storage = PackagesStorage()
     dictionaries_storage = DictionariesStorage()

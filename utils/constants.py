@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+APP_NAME = 'Wisdom Mod Translator'
 APP_VERSION = '1.4'
 APP_RELEASE_CANDITATE = False
 DICTIONARY_VERSION = 4

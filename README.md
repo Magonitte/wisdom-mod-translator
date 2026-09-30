@@ -1,8 +1,8 @@
-# The Sims 4 Translator
+# Wisdom Mod Translator
 
-_I don't know much English, so I used a translator to describe it. I'm sorry about that!_
+Fork of [The Sims 4 Translator](https://github.com/voky1/sims4-translator) by voky1, under the MIT license.
 
-This is a simple program for easy translation of mods for The Sims 4.  
+This is a program for translating mods for The Sims 4.  
 
 ## Features
 
